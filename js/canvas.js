@@ -11,6 +11,7 @@ var leftKey;
 //Opstilling af variabler til spillet.
 var gameLoop;
 var player;
+var obstacles = [];
 
 //Kører, når siden loades.
 window.onload = function() {
@@ -23,6 +24,15 @@ window.onload = function() {
 
     //Skab spilleren.
     player = new Player(100, 400); 
+
+    //Skab obstacles
+    for (let i = 0; i < 6; i++) {
+        obstacles.push(new obstacle(0 + 100*i, 600, 100, 100, 1));
+    }
+    obstacles.push(new obstacle(0, 520, 100, 100, 2));
+    for (let i = 0; i< 3; i++) {
+        obstacles.push(new obstacle(600, 420 + 100*i, 100, 100, 2));
+    }
 
     //Start game loop. Kalder "skridt-funktionen" 30 gange i sekundet. Skaber illusion af bevægelse.
     gameLoop = setInterval(skridt, 1000/30); 
@@ -40,10 +50,15 @@ function draw() {
     //Clear vores canvas, så spillerens, fjendernes osv. - placering konstant opdateres.
     //Variablen bruges til at tegne en hvid firkant på canvas.
     context.fillStyle = "white"; 
-    context.fillRect(0, 0, 600, 600);  
+    context.fillRect(0, 0, 1280, 700);  
 
     //Draw spilleren
     player.draw();
+
+    //Draw obstacles
+    for (let i = 0; i < obstacles.length; i++) {
+        obstacles[i].draw(); 
+    }
 }
 //Opstiller kontrollerne, som styrer spillerens bevægelse. Hvis en af de følgende knapper nedtrykkes, ændres den tilhørende boolean-variables værdi. 
 function setupInputs() {

@@ -25,17 +25,30 @@ function Player(x, y) {
                 //Bevæg til højre
                 this.xspeed ++;
             } else if (leftKey) {
-                //Bevæg til højre
+                //Bevæg til ventre
                 this.xspeed --;
             }
 
             //Vertikal bevægelse
+            if (upKey) {
+                //Tjek om spilleren befinder sig på en platform
 
-            //Angivelse af fart
-            if (this.xspeed > this.MaxSpeed) {
+                this.yspeed -= 15; 
+            }
+            //Tyngdekraft
+            this.yspeed += 1; 
+
+            //Angivelse af fart for horisontal bevægelse. Forhindrer at opnå en alt for høj fart.
+            if (this.xspeed > this.maxSpeed) {
                 this.xspeed = this.maxSpeed; 
             } else if (this.xspeed < -this.maxSpeed) {
                 this.xspeed = -this.maxSpeed;
+            }
+             //Angivelse af fart for vertikel bevægelse
+             if (this.yspeed > this.maxSpeed) {
+                this.yspeed = this.maxSpeed; 
+            } else if (this.yspeed < -this.maxSpeed) {
+                this.yspeed = -this.maxSpeed;
             }
 
             this.x += this.xspeed;
