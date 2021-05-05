@@ -50,9 +50,68 @@ function Player(x, y) {
             } else if (this.yspeed < -this.maxSpeed) {
                 this.yspeed = -this.maxSpeed;
             }
+            //Angiver x- og yspeeds værdier som hele tal i stedet for decimaler.
+            if (this.xspeed > 0) {
+                this.xspeed = Math.floor(this.xspeed); 
+            } else {
+                this.xspeed = Math.ceil(this.xspeed); 
+            }
+            if (this.yspeed > 0) {
+                this.yspeed = Math.floor(this.yspeed); 
+            } else {
+                this.yspeed = Math.ceil(this.yspeed); 
+            }
+
+            //Horisontal kollision-rektangler
+            let horisontalRekt = {
+                x: this.x + this.xspeed,
+                y: this.y, 
+                width: this.width,
+                height: this.height
+            } 
+
+            //Vertikale kollision-rektangler
+            let vertikalRekt = {
+                x: this.x,
+                y: this.y + this.yspeed,
+                width: this.width,
+                height: this.height
+            }
+
+            //Check efter kollisioner mellem Player og Obstacles. Tildeler følgende attributes til obstacle, som player befinder sig på.
+            for (let i = 0; i < obstacles.length; i++) {
+                let obstacleRekt = {
+                    x: obstacles[i].x,
+                    y: obstacles[i].y,
+                    width: obstacles[i].width,
+                    height: obstacles[i].height
+                }
+                //Angiver xspeed til 0, hvis player kolliderer med en obstacle med de ovenstående attributes på x-aksen.
+                if (undersoegKollision(horisontalRekt, obstacleRekt)) {
+                    //While-loopet gør, at hvis horisontalRekt og obstacleRekt kolliderer, så flytter horisontalRekt flytter sig få pixels væk obstacle. HorisontalRekt befinder sig i obstacle og flyttes ud af obstacleRekt indtil der er en afstand på 1 pixels, hvor x-speed angives 0, så player fryser.
+                    while (undersoegKollision(horisontalRekt, obstacleRekt)) {
+                        //Math.sign undersøger, om this.xspeed er negativ eller positiv. Hvis den er positiv og vi bevæger os mod højre, så trækker vi en fra horisontalRekt
+                        horisontalRekt.x -= Math.sign(this.xspeed); 
+                    }
+                    this.x = horisontalRekt.x; 
+                    this.xspeed = 0; 
+                }
+                //Samme funktion blot på y-aksen. 
+                if (undersoegKollision(vertikalRekt, obstacleRekt)) {
+                    while (undersoegKollision(vertikalRekt, obstacleRekt)) {
+                        vertikalRekt.y -= Math.sign(this.yspeed); 
+                    }
+                    this.y = vertikalRekt.y; 
+                    this.yspeed = 0; 
+                }
+            } 
 
             this.x += this.xspeed;
             this.y += this.yspeed;
+
+            //Constrainer Player, så Player ikke kan forlade canvas.
+            this.x = constrain(this.x, 0, canvas.width);
+            this.y = constrain(this.y, 0, canvas.height);
         }
     }
 
