@@ -113,6 +113,8 @@ function Player(x, y) {
             this.y = constrain(this.y, 0, canvas.height);
 
             this.doed(); 
+
+            this.collect()
         }
     }
 
@@ -131,5 +133,15 @@ function Player(x, y) {
                 }
             }
         }
+
+    this.collect = function() {
+        for (var i = 0; i < coins.length; i++) {
+            var pos = coins[i];
+            var d = dist(this.x, this.y, pos.x, pos.y);
+                if (d < 50) {
+                    console.log("Coin collected!")
+                }
+        }
+    }
     }
 

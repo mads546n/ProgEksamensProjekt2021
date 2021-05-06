@@ -11,6 +11,7 @@ var leftKey;
 //Opstilling af variabler til spillet.
 var gameLoop;
 var player;
+var coins = [];
 var obstacles = [];
 var enemies = []; 
 
@@ -24,7 +25,7 @@ window.onload = function() {
     setupInputs(); 
 
     //Skab spilleren.
-    player = new Player(630, 600); 
+    player = new Player(630, 600);
 
     //Skab obstacles
     /*
@@ -48,6 +49,14 @@ window.onload = function() {
     //Skab enemies
     enemies.push(new Enemy(50, 50, 100, 100)); 
 
+    //skab coins
+    coins.push(new Coin(600, 600, 22, 22));
+    coins.push(new Coin(50, 80, 22, 22));
+    coins.push(new Coin(1000, 80, 22, 22));
+    coins.push(new Coin(720, 220, 22, 22));
+    coins.push(new Coin(360, 450, 22, 22));
+    coins.push(new Coin(900, 450, 22, 22));
+
     //Start game loop. Kalder "skridt-funktionen" 30 gange i sekundet. Skaber illusion af bevægelse.
     gameLoop = setInterval(skridt, 1000/30); 
 }
@@ -69,6 +78,11 @@ function draw() {
     //Draw spilleren
     player.draw();
 
+     //Draw coins
+    for (let i = 0; i < coins.length; i++) {
+        coins[i].draw();
+    }
+
     //Draw enemy og kald move-function. 
     for (let i = 0; i < enemies.length; i++) {
         enemies[i].draw();
@@ -78,7 +92,9 @@ function draw() {
     //Draw obstacles
     for (let i = 0; i < obstacles.length; i++) {
         obstacles[i].draw(); 
-    }
+
+    
+        }
 }
 //Opstiller kontrollerne, som styrer spillerens bevægelse. Hvis en af de følgende knapper nedtrykkes, ændres den tilhørende boolean-variables værdi. 
 function setupInputs() {
