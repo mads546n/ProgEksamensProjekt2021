@@ -46,7 +46,7 @@ window.onload = function() {
     obstacles.push(new obstacle(780, 130, 550, 30, 3));
 
     //Skab enemies
-    enemies.push(new Enemy(0, 0, 100, 100)); 
+    enemies.push(new Enemy(50, 50, 100, 100)); 
 
     //Start game loop. Kalder "skridt-funktionen" 30 gange i sekundet. Skaber illusion af bevægelse.
     gameLoop = setInterval(skridt, 1000/30); 

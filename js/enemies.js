@@ -6,10 +6,10 @@
     this.height = 50; 
     this.width = 50;
     this.aktiv = true;
+    this.xspeed = -1; 
 
     this.move = function() {  
         if(this.aktiv) {
-            this.xspeed = 1; 
             //Tyngdekraft
             this.yspeed += 1; 
     
@@ -57,11 +57,24 @@
     
             this.x = constrain(this.x, 0, canvas.width);
             this.y = constrain(this.y, 0, canvas.height);
-         }
+
+            this.bounce(); 
+        }
     }
 
     this.draw = function() {
         context.fillStyle = "blue"; 
         context.fillRect(this.x, this.y, this.width, this.height); 
     }
- }
+    
+    this.bounce = function() {
+        for (i = 0; i < enemies.length; i++) {
+            var pos = enemies[i];
+            var d = this.x;
+            if (d === 0 || d === 1230) {
+                console.log(d);
+                this.xspeed *= -1;
+            } 
+        }
+    }   
+}
