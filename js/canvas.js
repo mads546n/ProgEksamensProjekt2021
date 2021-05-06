@@ -12,7 +12,7 @@ var leftKey;
 var gameLoop;
 var player;
 var obstacles = [];
-var enemies = []; 
+var enemies = [];
 
 //Kører, når siden loades.
 window.onload = function() {
@@ -46,7 +46,7 @@ window.onload = function() {
     obstacles.push(new obstacle(780, 130, 550, 30, 3));
 
     //Skab enemies
-    enemies.push(new Enemy(50, 50, 100, 100)); 
+    enemies.push(new Enemy(10, 80));
 
     //Start game loop. Kalder "skridt-funktionen" 30 gange i sekundet. Skaber illusion af bevægelse.
     gameLoop = setInterval(skridt, 1000/30); 

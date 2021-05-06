@@ -6,7 +6,7 @@
     this.height = 50; 
     this.width = 50;
     this.aktiv = true;
-    this.xspeed = -1; 
+    this.xspeed = -3; 
 
     this.move = function() {  
         if(this.aktiv) {
@@ -69,12 +69,10 @@
     
     this.bounce = function() {
         for (i = 0; i < enemies.length; i++) {
-            var pos = enemies[i];
             var d = this.x;
             if (d === 0 || d === 1230) {
-                console.log(d);
                 this.xspeed *= -1;
-            } 
+            }
         }
-    }   
+    }  
 }
