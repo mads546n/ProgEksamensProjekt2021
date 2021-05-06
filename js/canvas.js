@@ -12,6 +12,7 @@ var leftKey;
 var gameLoop;
 var player;
 var obstacles = [];
+var enemies = []; 
 
 //Kører, når siden loades.
 window.onload = function() {
@@ -23,16 +24,29 @@ window.onload = function() {
     setupInputs(); 
 
     //Skab spilleren.
-    player = new Player(100, 400); 
+    player = new Player(630, 600); 
 
     //Skab obstacles
+    /*
     for (let i = 0; i < 6; i++) {
-        obstacles.push(new obstacle(0 + 100*i, 600, 100, 100, 1));
+        obstacles.push(new obstacle(0 + 100*i, 650, 780, 100, 3));
+    }
+    for (let i = 0; i < 3; i++) {
+        obstacles.push(new obstacle(1180, 500 + 100*i, 50, 100, 3));
     }
     obstacles.push(new obstacle(0, 520, 100, 100, 2));
-    for (let i = 0; i< 3; i++) {
-        obstacles.push(new obstacle(600, 420 + 100*i, 100, 100, 2));
-    }
+    */
+    obstacles.push(new obstacle(0, 650, 1280, 50, 3));
+    obstacles.push(new obstacle(0, 500, 500, 30, 3));
+    obstacles.push(new obstacle(780, 500, 500, 30, 3));
+    obstacles.push(new obstacle(0, 350, 250, 30, 3));
+    obstacles.push(new obstacle(1030, 350, 250, 30, 3));
+    obstacles.push(new obstacle(400, 270, 500, 30, 3));
+    obstacles.push(new obstacle(0, 130, 500, 30, 3));
+    obstacles.push(new obstacle(780, 130, 550, 30, 3));
+
+    //Skab enemies
+    enemies.push(new Enemy(0, 0, 100, 100)); 
 
     //Start game loop. Kalder "skridt-funktionen" 30 gange i sekundet. Skaber illusion af bevægelse.
     gameLoop = setInterval(skridt, 1000/30); 
@@ -41,7 +55,7 @@ window.onload = function() {
 function skridt() {
     //Spillerens skridt
     player.skridt();
-
+    
     //Draw'er alting. Kalder function "draw", da vi canvas skal tegnes, hver gang vi bevæger os.
     draw();  
 }
@@ -54,6 +68,12 @@ function draw() {
 
     //Draw spilleren
     player.draw();
+
+    //Draw enemy og kald move-function. 
+    for (let i = 0; i < enemies.length; i++) {
+        enemies[i].draw();
+        enemies[i].move();  
+    }
 
     //Draw obstacles
     for (let i = 0; i < obstacles.length; i++) {

@@ -10,6 +10,8 @@ function obstacle (x, y, width, height, type) {
             context.fillStyle = "blue";
         } else if (this.type === 2) {
             context.fillStyle = "red"; 
+        } else if (this.type === 3) {
+            context.fillStyle = "grey"; 
         }
         context.fillRect(this.x, this.y, this.width, this.height);
     }

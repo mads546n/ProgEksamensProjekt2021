@@ -10,7 +10,7 @@ function Player(x, y) {
     this.friction = 0.6;
     //Maksimum fart spilleren kan opnå.
     this.maxSpeed = 10;
-    this.height = 100; 
+    this.height = 50; 
     this.width = 50;
     //
     this.aktiv = true; 
@@ -31,10 +31,9 @@ function Player(x, y) {
 
             //Vertikal bevægelse
             if (upKey) {
-                //Tjek om spilleren befinder sig på en platform
-
-                this.yspeed -= 15; 
+                this.yspeed -= 15;
             }
+
             //Tyngdekraft
             this.yspeed += 1; 
 
@@ -112,6 +111,8 @@ function Player(x, y) {
             //Constrainer Player, så Player ikke kan forlade canvas.
             this.x = constrain(this.x, 0, canvas.width);
             this.y = constrain(this.y, 0, canvas.height);
+
+            this.doed(); 
         }
     }
 
@@ -120,5 +121,15 @@ function Player(x, y) {
         context.fillStyle = "red"; 
         context.fillRect(this.x, this.y, this.width, this.height); 
     }
-    
-}
+
+    this.doed = function() {  
+        for (var i = 0; i < enemies.length; i++) {
+            var pos = enemies[i];
+            var d = dist(this.x, this.y, pos.x, pos.y);
+                if (d < 50) {
+                    console.log("starter forfra");  
+                }
+            }
+        }
+    }
+
