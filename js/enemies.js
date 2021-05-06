@@ -1,7 +1,22 @@
+/*let img;
+let c;
+
+/*function preload() {
+    img = loadImage ("Billeder/slime.png");
+}
+
+function setup() {
+    Image(img, 0, 0);
+}
+
+/*function setup() {
+    img.loadPixels();
+    c = img.get(img.width / 2, img.height / 2);
+}*/
+
  function Enemy(x, y) { 
     this.x = x; 
     this.y = y;
-    this.xspeed = 0; 
     this.yspeed = 0; 
     this.height = 50; 
     this.width = 50;
@@ -63,8 +78,10 @@
     }
 
     this.draw = function() {
+        //Enemyimg = loadImage ("Billeder/slime.png");
         context.fillStyle = "blue"; 
         context.fillRect(this.x, this.y, this.width, this.height); 
+        //drawimage(Enemyimg)
     }
     
     this.bounce = function() {

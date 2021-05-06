@@ -32,3 +32,6 @@ I dag har vi lavet en række ændringer i samtlige scripts: Player.js, Canvas.js
 
 Ons. 05. Maj 2021:
 I dag har vi implementeret et collision-detection-system, som kan bestemme, om Player kolliderer med en obstacle, hvor Player fryser. Vi har også constrainet Player indenfor canvas, så Player ikke kan forlade Canvas. Player er dog stadig i stand til at kunne "flyve", eftersom man kan holde "w" eller "upkey" nede for at fortsætte med at hoppe for evigt. Spillets grundlæggende funktion er snart færdiggjort, og vi mangler at designe vores eget layout og benytte det obstacle-system, som er opstillet samt begrænse spillerens hop, så man ikke kan flyve. Efter dette er færdiggjort kan vi begynde at implementere enemies, coins og et scoreboard samt, hvis tiden tillader det, at tilpasse spillets visuelle udtryk. 
+
+Tors. 06. Maj 2021: 
+I dag har vi implementeret enemies i spillet samt en restriktion på vores canvas, så vores enemies aldrig falder ud af canvas, men rettere bouncer af kanten af canvas. Vi har også lavet en doed-function, som bliver aktiveret, når spilleren kommer i kontakt med en enemy. Denne function skal videreudvikles, så spillet afsluttes, hvis man dør. Vi har også implementeret et layout, så banen er færdiggjort og har det ønskede layout. 
