@@ -10,8 +10,4 @@ function Coin(x, y){
     
     }
 
-    this.collect = function(){
-        
-    }
-
 }
