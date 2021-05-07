@@ -15,6 +15,9 @@ var coins = [];
 var obstacles = [];
 var enemies = [];
 
+//var scoreText;
+//var score = 0;
+
 //Kører, når siden loades.
 window.onload = function() {
     //Canvas-variabler tildeles en mening.
@@ -96,8 +99,16 @@ function draw() {
     for (let i = 0; i < obstacles.length; i++) {
         obstacles[i].draw(); 
         }
-}
+    
+    scoreText = game.add.text(5, 5, "Score: 0", {font: "18px Arial", fill: "#0095DD"});
 
+}
+    /*function playerCoin(player, Coin) {
+        coins.collect();
+        score += 10;
+        scoreText.setText("Score: " +score)
+    }*/
+    
 //Opstiller kontrollerne, som styrer spillerens bevægelse. Hvis en af de følgende knapper nedtrykkes, ændres den tilhørende boolean-variables værdi. 
 function setupInputs() {
     document.addEventListener("keydown", function(event) {
