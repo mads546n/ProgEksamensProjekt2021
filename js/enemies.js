@@ -14,6 +14,8 @@ function setup() {
     c = img.get(img.width / 2, img.height / 2);
 }*/
 
+let aktiv2 = true; 
+
  class Enemy { 
     constructor(x, y) {
         this.x = x; 
@@ -21,12 +23,12 @@ function setup() {
         this.yspeed = 0; 
         this.height = 50; 
         this.width = 50;
-        this.aktiv = true;
-        this.xspeed = -10; 
+        //this.aktiv = true;
+        this.xspeed = -7; 
     }
     
     move() {  
-        if(this.aktiv) {
+        if(aktiv2) {
             //Tyngdekraft
             this.yspeed += 1; 
     
@@ -72,7 +74,7 @@ function setup() {
             this.x += this.xspeed;
             this.y += this.yspeed;
     
-            this.x = constrain(this.x, 0, canvas.width);
+            this.x = constrain(this.x, 0, 1230);
             this.y = constrain(this.y, 0, canvas.height);
 
             // Bounce

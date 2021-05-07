@@ -109,7 +109,7 @@ function Player(x, y) {
             this.y += this.yspeed;
 
             //Constrainer Player, så Player ikke kan forlade canvas.
-            this.x = constrain(this.x, 0, canvas.width);
+            this.x = constrain(this.x, 0, 1230);
             this.y = constrain(this.y, 0, canvas.height);
 
             this.doed(); 
@@ -128,11 +128,16 @@ function Player(x, y) {
         for (var i = 0; i < enemies.length; i++) {
             var pos = enemies[i];
             var d = dist(this.x, this.y, pos.x, pos.y);
-                if (d < 50) {
-                    console.log("starter forfra");  
-                }
+                if (d < 50) { 
+                    console.log("starter forfra");
+                    this.aktiv = false; 
+                    aktiv2 = false; 
+                    gameLoop = 0; 
+                    alert("Du har indsalet " + coins[i] + " coins"); 
+                    location.reload(); 
             }
         }
+    }
 
     this.collect = function() {
         for (var i = 0; i < coins.length; i++) {
@@ -143,5 +148,5 @@ function Player(x, y) {
                 }
         }
     }
-    }
+}
 
