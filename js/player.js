@@ -114,7 +114,7 @@ function Player(x, y) {
 
             this.doed(); 
 
-            this.collect()
+            this.collect(); 
         }
     }
 

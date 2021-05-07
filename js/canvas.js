@@ -48,6 +48,9 @@ window.onload = function() {
 
     //Skab enemies
     enemies.push(new Enemy(10, 80));
+    enemies.push(new Enemy(1100, 80));
+    enemies.push(new Enemy(1100, 400));
+    enemies.push(new Enemy(10, 400));
 
     //skab coins
     coins.push(new Coin(600, 600, 22, 22));
@@ -92,10 +95,9 @@ function draw() {
     //Draw obstacles
     for (let i = 0; i < obstacles.length; i++) {
         obstacles[i].draw(); 
-
-    
         }
 }
+
 //Opstiller kontrollerne, som styrer spillerens bevægelse. Hvis en af de følgende knapper nedtrykkes, ændres den tilhørende boolean-variables værdi. 
 function setupInputs() {
     document.addEventListener("keydown", function(event) {

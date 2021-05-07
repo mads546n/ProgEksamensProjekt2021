@@ -14,16 +14,18 @@ function setup() {
     c = img.get(img.width / 2, img.height / 2);
 }*/
 
- function Enemy(x, y) { 
-    this.x = x; 
-    this.y = y;
-    this.yspeed = 0; 
-    this.height = 50; 
-    this.width = 50;
-    this.aktiv = true;
-    this.xspeed = -3; 
-
-    this.move = function() {  
+ class Enemy { 
+    constructor(x, y) {
+        this.x = x; 
+        this.y = y;
+        this.yspeed = 0; 
+        this.height = 50; 
+        this.width = 50;
+        this.aktiv = true;
+        this.xspeed = -10; 
+    }
+    
+    move() {  
         if(this.aktiv) {
             //Tyngdekraft
             this.yspeed += 1; 
@@ -34,8 +36,8 @@ function setup() {
                 y: this.y, 
                 width: this.width,
                 height: this.height
-            } 
-    
+            }
+        
             //Vertikale kollision-rektangler
             let vertikalRekt = {
                 x: this.x,
@@ -55,7 +57,7 @@ function setup() {
                         horisontalRekt.x -= Math.sign(this.xspeed); 
                     }
                     this.x = horisontalRekt.x; 
-                    this.xspeed = 0; 
+                    this.xspeed *= -1; 
                 }
                 //Samme funktion blot på y-aksen. 
                 if (undersoegKollision(vertikalRekt, obstacleRekt)) {
@@ -63,7 +65,7 @@ function setup() {
                         vertikalRekt.y -= Math.sign(this.yspeed); 
                     }
                     this.y = vertikalRekt.y; 
-                    this.yspeed = 0; 
+                    this.yspeed *= -1; 
                 }
             } 
     
@@ -73,23 +75,23 @@ function setup() {
             this.x = constrain(this.x, 0, canvas.width);
             this.y = constrain(this.y, 0, canvas.height);
 
-            this.bounce(); 
+            // Bounce
+            // for (let i = 0; i < enemies.length; i++) {
+            //     var d = this.x;
+            //     if (d === 0 || d === 1230) {
+            //         this.xspeed *= -1;
+            //     }
+            // }
+
+            //Bounce-funktionen
+            if(this.x === 0 || this.x === 1230) this.xspeed *= -1
         }
     }
 
-    this.draw = function() {
+    draw() {
         //Enemyimg = loadImage ("Billeder/slime.png");
         context.fillStyle = "blue"; 
         context.fillRect(this.x, this.y, this.width, this.height); 
         //drawimage(Enemyimg)
     }
-    
-    this.bounce = function() {
-        for (i = 0; i < enemies.length; i++) {
-            var d = this.x;
-            if (d === 0 || d === 1230) {
-                this.xspeed *= -1;
-            }
-        }
-    }  
 }
