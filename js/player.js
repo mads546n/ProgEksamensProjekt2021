@@ -141,9 +141,10 @@ function Player(x, y) {
 
     this.collect = function() {
         for (var i = 0; i < coins.length; i++) {
-            var pos = coins[i];
+            var pos = coins[0];
             var d = dist(this.x, this.y, pos.x, pos.y);
-                if (d < 50) {
+                if (d < 22) {
+                    var x = coins.shift();
                     console.log("Coin collected!")
                 }
         }

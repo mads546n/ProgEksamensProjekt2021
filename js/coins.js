@@ -1,3 +1,4 @@
+
 function Coin(x, y){
     this.x = x;
     this.y = y;
@@ -11,3 +12,11 @@ function Coin(x, y){
     }
 
 }
+
+
+
+/*function drawScore() {
+    ctx.font = "16px Arial";
+    ctx.fillStyle = "#0095DD";
+    ctx.fillText("Score: " +score, 8, 20);
+}*/
