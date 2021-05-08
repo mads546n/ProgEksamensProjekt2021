@@ -141,13 +141,38 @@ function Player(x, y) {
 
     this.collect = function() {
         for (var i = 0; i < coins.length; i++) {
-            var pos = coins[0];
-            var d = dist(this.x, this.y, pos.x, pos.y);
-                if (d < 22) {
-                    var x = coins.shift();
+            var pos1 = coins[i];
+            var pos2 = coins[i];
+            var pos3 = coins[i];
+
+            var d = dist(this.x, this.y, pos1.x, pos1.y);
+                if (d < 50) {
+                    coins.shift();
+                    coins.push(new Coin(floor(random(1200)), 610, 22, 22));
+                    //coins.push(new Coin(floor(random(1200)), 310, 22, 22));
+                    //coins.push(new Coin(floor(random(1200)), 90, 22, 22));
+
                     console.log("Coin collected!")
                 }
+            var d = dist(this.x, this.y, pos2.x, pos2.y);
+                if (d < 50) {
+                    coins.shift();
+                    //coins.push(new Coin(floor(random(1200)), 610, 22, 22));
+                    coins.push(new Coin(floor(random(1200)), 310, 22, 22));
+                    //coins.push(new Coin(floor(random(1200)), 90, 22, 22));
+
+                    console.log("Coin collected!")
+                }
+            var d = dist(this.x, this.y, pos3.x, pos3.y);
+                if (d < 50) {
+                    coins.shift();
+                    //coins.push(new Coin(floor(random(1200)), 610, 22, 22));
+                    //coins.push(new Coin(floor(random(1200)), 310, 22, 22));
+                    coins.push(new Coin(floor(random(1200)), 90, 22, 22));
+
+                    console.log("Coin collected!")
+                }
+            }
         }
     }
-}
 
