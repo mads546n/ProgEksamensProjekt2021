@@ -164,7 +164,7 @@ function Player(x, y) {
                     //coins.push(new Coin(floor(random(1200)), 90, 22, 22));
 
                     console.log("Coin collected!")
-                    this.score++; 
+                    //this.score++; 
                 }
             var d = dist(this.x, this.y, pos3.x, pos3.y);
                 if (d < 50) {
@@ -174,7 +174,7 @@ function Player(x, y) {
                     coins.push(new Coin(floor(random(1200)), 90, 22, 22));
 
                     console.log("Coin collected!")
-                    this.score++; 
+                    //this.score++; 
                 }
             }
         }
