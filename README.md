@@ -11,7 +11,8 @@ Gruppe:
  - Ian Reenberg.
  - Asger Dokkedal.
 
-I starten af projektforløbet har vi fået inspiration fra YouTube-kanalen: RedFlyer Coding. 
+I starten af projektforløbet har vi fået inspiration fra YouTube-kanalen: RedFlyer Coding.
+https://www.youtube.com/channel/UCpJgDxJVcMhLsrRqsA_mvcw
 
 Logbog: 
 
