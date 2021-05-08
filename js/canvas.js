@@ -13,7 +13,7 @@ var gameLoop;
 var player;
 var coins = [];
 var obstacles = [];
-var enemies = [];
+var enemies = []; 
 
 //var scoreText;
 //var score = 0;
@@ -57,11 +57,11 @@ window.onload = function() {
 
     //skab coins
     coins.push(new Coin(600, 600, 22, 22));
-    coins.push(new Coin(50, 80, 22, 22));
-    coins.push(new Coin(1000, 80, 22, 22));
-    coins.push(new Coin(720, 220, 22, 22));
-    coins.push(new Coin(360, 450, 22, 22));
-    coins.push(new Coin(900, 450, 22, 22));
+    // coins.push(new Coin(50, 80, 22, 22));
+    // coins.push(new Coin(1000, 80, 22, 22));
+    // coins.push(new Coin(720, 220, 22, 22));
+    // coins.push(new Coin(360, 450, 22, 22));
+    // coins.push(new Coin(900, 450, 22, 22));
 
     //Start game loop. Kalder "skridt-funktionen" 30 gange i sekundet. Skaber illusion af bevægelse.
     gameLoop = setInterval(skridt, 1000/30); 
@@ -100,7 +100,7 @@ function draw() {
         obstacles[i].draw(); 
         }
     
-    scoreText = game.add.text(5, 5, "Score: 0", {font: "18px Arial", fill: "#0095DD"});
+    //scoreText = game.add.text(5, 5, "Score: 0", {font: "18px Arial", fill: "#0095DD"});
 
 }
     /*function playerCoin(player, Coin) {

@@ -1,4 +1,3 @@
-
 function Coin(x, y){
     this.x = x;
     this.y = y;
@@ -8,9 +7,9 @@ function Coin(x, y){
     this.draw = function(){
         context.fillStyle = "orange";
         context.fillRect(this.x, this.y, this.width, this.height);
-    
     }
-
+    this.x = constrain(this.x, 0, 1230);
+    this.y = constrain(this.y, 0, 700);
 }
 
 

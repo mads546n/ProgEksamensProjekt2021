@@ -14,6 +14,7 @@ function Player(x, y) {
     this.width = 50;
     //
     this.aktiv = true; 
+    this.score = 0; 
     
     this.skridt = function() {  
         if(this.aktiv) {
@@ -102,7 +103,7 @@ function Player(x, y) {
                     }
                     this.y = vertikalRekt.y; 
                     this.yspeed = 0; 
-                }
+                }    
             } 
 
             this.x += this.xspeed;
@@ -133,7 +134,7 @@ function Player(x, y) {
                     this.aktiv = false; 
                     aktiv2 = false; 
                     gameLoop = 0; 
-                    alert("Du har indsalet " + coins[i] + " coins"); 
+                    alert("Du har indsalet " + this.score + " coins"); 
                     location.reload(); 
             }
         }
@@ -143,11 +144,13 @@ function Player(x, y) {
         for (var i = 0; i < coins.length; i++) {
             var pos = coins[0];
             var d = dist(this.x, this.y, pos.x, pos.y);
-                if (d < 22) {
+            console.log(pos.x, pos.y); 
+            //console.log(this.score); 
+                if (d < 50) {
                     var x = coins.shift();
+                    this.score++; 
                     console.log("Coin collected!")
-                }
+            }
         }
     }
 }
-
