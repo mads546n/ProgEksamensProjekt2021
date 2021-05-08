@@ -11,6 +11,8 @@ Gruppe:
  - Ian Reenberg.
  - Asger Dokkedal.
 
+I starten af projektforløbet har vi fået inspiration fra YouTube-kanalen: RedFlyer Coding. 
+
 Logbog: 
 
 Ons. 17. Marts 2021:
