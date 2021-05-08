@@ -134,7 +134,7 @@ function Player(x, y) {
                     this.aktiv = false; 
                     aktiv2 = false; 
                     gameLoop = 0; 
-                    alert("Du har indsalet " + this.score + " coins"); 
+                    alert("Du har indsamlet " + this.score + " coins"); 
                     location.reload(); 
             }
         }
