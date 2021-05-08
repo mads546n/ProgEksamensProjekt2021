@@ -101,6 +101,8 @@ function draw() {
         }
     
     //scoreText = game.add.text(5, 5, "Score: 0", {font: "18px Arial", fill: "#0095DD"});
+    background(128,128,128)
+    text("Score: "+player.score, -1, 40);
 
 }
     /*function playerCoin(player, Coin) {
