@@ -1,9 +1,10 @@
 # ProgEksamensProjekt2021
 Eksamensprojekt forår / sommer 2021. 
  - Fag: Programmering B.
- - Klasse: 3.r. 
+ - Klasse: 3.r - Digital Kommunikation. 
  - Institution: Slotshaven Gymnasium.
  - Faglærer: Simon Ingemann Christensen (sic). 
+ - Projektforløb: 02-03-2021 til 09-05-2021.
 
 Gruppe: 
  - Mads Edvardsen.
@@ -38,3 +39,8 @@ I dag har vi implementeret enemies i spillet samt en restriktion på vores canva
 
 Fred. 07. Maj 2021:
 I dag har vi omskrevet function Enemy til class Enemy, så alle enemies overholder de krav og attributter, som angives i class. Vi har dermed løst bounce-problemet. Vi har arbejdet med at få implementeret sprites, men dette har vist sig at være mere kompliceret end forventet, så vi har droppet ideén. Vi vil forsøge igen, hvis tiden tillader det. Vi skal have udviklet vores this.doed-function, så spilleren henvises til en start- og slutskærm samt vores funktion, som skal sørge for, at spilleren kan indsamle coins og angive indsamlede coins under spillet og efter. 
+
+Lør. 08. Maj 2021: 
+I dag har vi færdiggjort vores spil. Indsamling af coins samt en meget primitiv dødsskærm er implementeret. Det er også lykkedes os at lave en score-tæller, som altid er til stede på skærmen under spillet. Man kan nu både se, hvad ens score er under spillet, og når man er død. Vi har besluttet, at alt udstreget kode forbliver i vores scripts, da det er rart at have ekstra dokumentation på mislykkede aspekter af spillet og mere. Vi har færdiggjort synopsis og laver en release eller "tag" af repositoriet og det færdige projekt. 
+
+Hele projektforløbet har været underholdende og lærerigt. Udformningen af spillet har medfulgt en række tekniske problemer, men vi har altid kunne overkomme dem. Der har været utroligt godt holdarbejde i gruppen, og vi er alle tilfredse med vores indsats og færdige produkt. 
