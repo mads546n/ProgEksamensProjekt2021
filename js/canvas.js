@@ -56,12 +56,12 @@ window.onload = function() {
     enemies.push(new Enemy(10, 400));
 
     //skab coins
-    coins.push(new Coin(600, 600, 22, 22));
-    // coins.push(new Coin(50, 80, 22, 22));
-    // coins.push(new Coin(1000, 80, 22, 22));
-    // coins.push(new Coin(720, 220, 22, 22));
-    // coins.push(new Coin(360, 450, 22, 22));
-    // coins.push(new Coin(900, 450, 22, 22));
+    coins.push(new Coin(floor(random(1200)), 610, 22, 22));
+    coins.push(new Coin(floor(random(1200)), 310, 22, 22));
+    coins.push(new Coin(floor(random(1200)), 90, 22, 22));
+    //coins.push(new Coin(720, 220, 22, 22));
+    //coins.push(new Coin(360, 450, 22, 22));
+    //coins.push(new Coin(900, 450, 22, 22));
 
     //Start game loop. Kalder "skridt-funktionen" 30 gange i sekundet. Skaber illusion af bevægelse.
     gameLoop = setInterval(skridt, 1000/30); 
